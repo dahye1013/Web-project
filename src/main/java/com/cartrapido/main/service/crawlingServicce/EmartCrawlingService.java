@@ -57,7 +57,7 @@ public class EmartCrawlingService {
             "HealthFood"       //EMART_HEALTHFOOD_URL
     };
 
-    @PostConstruct
+    //@PostConstruct
     public void getEmartDatas() {
 
         //날짜 비교해서 크롤링하기

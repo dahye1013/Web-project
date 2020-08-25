@@ -48,7 +48,7 @@ public class LottemartCrawlingService {
             "HealthFood"
     };
 
-    @PostConstruct
+    //@PostConstruct
     public void getLottermartDatas() {
 
         List<LocalDateTime> list = productRepository.martDate("lottemart");

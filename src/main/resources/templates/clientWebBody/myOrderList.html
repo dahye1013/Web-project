@@ -64,8 +64,14 @@
                                                                     style="font-size: 20px;"
                                                                     th:text="${orderNumList.shopper}"></span></strong>
                                                             님과 매칭되셨어요!<br>
-                                                            &nbsp;<span class="btn-outline-success" onclick="location.href='/clientChatting'">
+                                                            &nbsp;<span class="btn-outline-success" onclick="location.href='/chat/clientChatting'">
                                                                 채팅하러 가기</span>
+
+                                                            <span class="btn-success"
+                                                                  th:onclick="|javascript:deleteOrder('${orderNumList.orderNum}')|"
+                                                            >
+                                                                거래 종료</span>
+
                                                         </span>
                                                         <span th:if="${orderNumList.shopper == null}">
                                                         아직 shopper와 매칭되지 않았습니다!
@@ -120,4 +126,28 @@
 
 
 </body>
+
+<script>
+
+    //주문 제거
+    function deleteOrder(orderNum) {
+        alert(orderNum);
+
+
+
+        $.ajax({
+            url: "/deleteOrder",
+            data: {orderNum: orderNum},
+            type: "POST",
+            success: function () {
+                alert('거래 종료');
+//                location.href = '/shoppingCart';
+
+            }
+        });
+    };
+
+</script>
+
+
 </html>
